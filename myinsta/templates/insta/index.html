@@ -1,0 +1,22 @@
+{% extends 'insta/base.html'%}
+{% block content %}
+    <div class="PostContainer">
+        <div class="TopMenu">
+        </div>
+        <div class="photo">
+            <form method='post' action='' enctype="multipart/form-data">
+                {% csrf_token%}
+                <table>
+                    {{form.as_table}}
+                </table>
+            </form>
+
+        </div>
+        <div class="MainContents">
+
+        </div>
+        <div class="AddComment">
+
+        </div>
+    </div>
+{% endblock %}
