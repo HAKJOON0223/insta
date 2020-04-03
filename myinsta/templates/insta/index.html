@@ -7,13 +7,16 @@
                 <div class="PostContainer">
                     <div class="TopMenu">
                         <span>
-                            {{ post.title }}
+                            {{ post.author }}
                         </span>
                     </div>
                     <div class="photo">
+                        {% if post.photo %}
+                            <img src="{{ post.photo.url }}" alt="">
+                        {% endif %}
                     </div>
                     <div class="MainContents">
-
+                        {{ post.text }}
                     </div>
                     <div class="AddComment">
 
