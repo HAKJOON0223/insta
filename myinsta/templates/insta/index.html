@@ -1,17 +1,27 @@
 {% extends 'insta/base.html'%}
 
 {% block content %}
-    
-        <div class="PostContainer">
-            <div class="TopMenu">
-            </div>
-            <div class="photo">
-            </div>
-            <div class="MainContents">
+    {% if latest_posts %}
+        <ul>
+            {% for post in latest_posts %}
+                <div class="PostContainer">
+                    <div class="TopMenu">
+                        <span>
+                            {{ post.title }}
+                        </span>
+                    </div>
+                    <div class="photo">
+                    </div>
+                    <div class="MainContents">
 
-            </div>
-            <div class="AddComment">
+                    </div>
+                    <div class="AddComment">
 
-            </div>
-        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No posts are available.</p>
+    {% endif %}
 {% endblock %}

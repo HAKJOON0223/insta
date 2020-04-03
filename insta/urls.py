@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-app_name = "insta"
+app_name = "myinsta"
 
 urlpatterns = [
     path('', admin.site.urls),

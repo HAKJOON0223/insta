@@ -2,17 +2,15 @@ from django.views.generic import ListView, DetailView
 from .models import Post
 from .forms import PostForm
 from django.shortcuts import render, redirect
+from django.utils import timezone
 
-import datetime
-import  pytz
 
 class IndexView(ListView):
     template_name = 'insta/index.html'
     context_object_name = 'latest_posts'
 
     def get_queryset(self):
-         now = datetime.datetime.utcnow().replace(tzinfo=pytz.utc)
-        return Post.objects.filter(published_date__lte = datetime.datetime.now()).order_by('published_date')[:5]
+        return Post.objects.filter(published_date__lte = timezone.now()).order_by('published_date')[:5]
 
 def EditPost(request):
     if request.method == "POST":
