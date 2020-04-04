@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from imagekit.models import ProcessedImageField
-from imagekit.processors import Thumbnail, ResizeToFill
+from imagekit.processors import Thumbnail, ResizeToFill, Transpose
 
 
 class Post(models.Model):
@@ -11,7 +11,7 @@ class Post(models.Model):
     text = models.TextField()
     photo = ProcessedImageField(
             upload_to = 'photo/',
-            processors = [ResizeToFill(600,600)],
+            processors = [Transpose(), ResizeToFill(600,600)],
             format = 'JPEG',
             options = {'quality': 60}
     )
