@@ -11,9 +11,9 @@ class Post(models.Model):
     text = models.TextField()
     photo = ProcessedImageField(
             upload_to = 'photo/',
-            processors = [Transpose(), ResizeToFill(600,600)],
+            processors = [Transpose(), ResizeToFill(980,980)],
             format = 'JPEG',
-            options = {'quality': 60}
+            options = {'quality': 80}
     )
     created_date = models.DateTimeField(
             default=timezone.now)
