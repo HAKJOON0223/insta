@@ -24,15 +24,31 @@ class Post(models.Model):
         return self.title
 
 class Comment(models.Model):
-    post = models.ForeignKey('myinsta.Post', on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comment')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     text = models.TextField()
     created_date = models.DateTimeField(default = timezone.now)
     approved_comment = models.BooleanField(default=False)
 
+
     def approved(self):
         self.approved_comment = True
         self.save()
 
+    def __str__(self):
+        return self.text
+
+class comment_to_comment(models.Model):
+    comment = models.ForeignKey('Comment', on_delete=models.CASCADE, related_name='comment_to_comment')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_date = models.DateTimeField(default = timezone.now)
+    apporved_comment = models.BooleanField(default = False)
+ 
+
+    def apporoved(self):
+        self.apporoved_commnet = True
+        self.save()
+    
     def __str__(self):
         return self.text

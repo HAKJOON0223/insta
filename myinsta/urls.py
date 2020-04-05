@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('', views.IndexView.as_view(), name = 'IndexView'),
+    path('', views.IndexView, name = 'IndexView'),
     path('EditPost/', views.EditPost, name = 'EditPost'),
+    path('<int:pk>/add_comment/', views.add_comment_page, name = 'add_comment_page'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
