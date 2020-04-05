@@ -1,25 +1,33 @@
 <!DOCTYPE html>
+{% load static %}
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>JonnStagram</title>
-        <link rel = "stylesheet" href="../../static/style.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <script src="https://kit.fontawesome.com/d84ced4060.js" crossorigin="anonymous"></script>
-        <a href="{% url 'EditPost' %}" class="top-menu"><i class="far fa-plus-square"></i></a>
+        
     </head>
     </head>
     <body>
-        <div class = "NavigationBar">
-            <span>
-                Joonstagram
-            </span>
-            <input type="text" placeholder="검색"/>
-            <div class="div">
-                <i class="fas fa-home"></i>
-                <i class="far fa-compass"></i>
-                <i class="far fa-heart"></i>
-                <i class="far fa-user-circle"></i>
-            </div>
+        <div class = "Top_Bar">
+            <i class="fas fa-camera-retro "></i>
+            <a href="{% url 'IndexView'%}" class="Home_Logo">
+                <span>
+                    Joonstagram
+                </span>
+            </a>
+            <i class="far fa-paper-plane"></i>
+        </div>
+
+        <div class="Nav_Bar">
+            <i class="fas fa-home"></i>
+            <i class="fas fa-search"></i>
+            <a href="{% url 'EditPost' %}" class="top-menu"><i class="far fa-plus-square"></i></a>
+            <i class="far fa-heart"></i>
+            <i class="far fa-user-circle"></i>
+        </div>
+        <div class="maincontents">
             {% block content %}
             {% endblock %}
         </div>

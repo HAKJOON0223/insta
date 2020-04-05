@@ -1,29 +1,35 @@
-{% for comment in comment %}
-    <div class="comment">
+{% extends 'insta/index.html'%}
 
-        <div class="profil_image">
-            
-        </div>
-        <div class="user_name">
-            <span>{{ comment.author }}</span>
-        </div>
+{% block content %}
+
+    {% for comment in comment %}
         <div class="comment">
-            <span>{{ comment.text }} </span>
+
+            <div class="profil_image">
+                
+            </div>
+            <div class="user_name">
+                <span>{{ comment.author }}</span>
+            </div>
+            <div class="comment">
+                <span>{{ comment.text }} </span>
+            </div>
+            <div class="comment_to_comment">
+                {% for comments in comment_t_comment %}
+                    <span>{{ comment_t_commnet.text }} 덧글</span>
+                {% endfor %}
+            </div>
+            
+        </form>
         </div>
-        <div class="comment_to_comment">
-            {% for comments in comment_t_comment %}
-                <span>{{ comment_t_commnet.text }} 덧글</span>
-            {% endfor %}
-        </div>
-        
+    {% empty %}
+        <p>No comments here yet :(</p>
+
+    {% endfor %}
+
+    <form method="POST" class="comment_form">{% csrf_token %}
+        {{ form_comment.as_p }}
+        <button type="submit" class="save btn btn-default">댓글게시</button>
     </form>
-    </div>
-{% empty %}
-    <p>No comments here yet :(</p>
 
-{% endfor %}
-
-<form method="POST" class="comment_form">{% csrf_token %}
-    {{ form_comment.as_p }}
-    <button type="submit" class="save btn btn-default">댓글게시</button>
-</form>
+{% end_block %}
