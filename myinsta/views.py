@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 
 
+
 def IndexView(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'insta/index.html', {'posts': posts})
@@ -54,3 +55,9 @@ def add_comment_page(request, pk):
     'comment': comment,
     'comment_to_comment':comment_t_comment},
     )
+
+def post_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('IndexView')
+

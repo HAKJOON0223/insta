@@ -24,5 +24,6 @@ urlpatterns = [
     path('', views.IndexView, name = 'IndexView'),
     path('EditPost/', views.EditPost, name = 'EditPost'),
     path('<int:pk>/add_comment/', views.add_comment_page, name = 'add_comment_page'),
+    path(r'insta/^(?P<pk>\d+)/remove/$', views.post_remove, name = 'post_remove'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,10 +5,16 @@
         <ul>
         {% for post in posts %}
                 <div class="PostContainer">
-                    <div class="TopMenu">
-                        <span>
+                    <div class="Top_Content">
+                        <div class="profil">
+                            <img src="../../media/resource/avatar.png" alt="" class = 'avatar'>
+                        </div>
+                        <div class="author">
                             {{ post.author }}
-                        </span>
+                        </div>
+                        <div class="delete_button">
+                            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><i class="fas fa-times"></i></a>
+                        </div>
                     </div>
                     <div class="photo">
                         {% if post.photo %}

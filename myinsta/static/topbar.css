@@ -16,4 +16,5 @@ body .Home_Logo{
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgb(195, 195, 195);
+    padding: 0px 30px;
 }

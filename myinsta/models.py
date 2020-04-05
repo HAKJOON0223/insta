@@ -3,7 +3,7 @@ from django.db import models
 from django.utils import timezone
 from imagekit.models import ProcessedImageField
 from imagekit.processors import Thumbnail, ResizeToFill, Transpose
-
+import os
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -13,7 +13,7 @@ class Post(models.Model):
             upload_to = 'photo/',
             processors = [Transpose(), ResizeToFill(980,980)],
             format = 'JPEG',
-            options = {'quality': 80}
+            options = {'quality': 80},
     )
     created_date = models.DateTimeField(
             default=timezone.now)
@@ -22,6 +22,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def delete(self, *args, **kargs):
+        os.remove(os.path.join(settings.MEDIA_ROOT, self.photo.path))
+        super(Post, self).delete(*args, **kargs)
 
 class Comment(models.Model):
     post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comment')

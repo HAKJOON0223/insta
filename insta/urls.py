@@ -22,7 +22,7 @@ app_name = "myinsta"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('myinsta.urls')),
+    path(r'', include('myinsta.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

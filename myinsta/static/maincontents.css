@@ -1,3 +1,13 @@
 .maincontents{
     margin-top: 80px;
 }
+
+.Top_Content{
+    display: flex;
+    align-items: center;
+}
+
+.profil .avatar{
+    width: 90px;
+    height: 90px;
+}
