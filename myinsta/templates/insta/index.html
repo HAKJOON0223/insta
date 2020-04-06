@@ -10,7 +10,7 @@
                             <img src="../../media/resource/avatar.png" alt="" class = 'avatar'>
                         </div>
                         <div class="author">
-                            {{ post.author }}
+                            <span>{{ post.author }}</span>
                         </div>
                         <div class="delete_button">
                             <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><i class="fas fa-times"></i></a>

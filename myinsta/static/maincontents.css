@@ -3,11 +3,26 @@
 }
 
 .Top_Content{
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding : 20px 30px;
 }
 
 .profil .avatar{
     width: 90px;
     height: 90px;
+}
+
+.Top_Content .author{
+    padding-left: 30px;
+    font-size: 30px;
+    font-weight: 800;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.Top_Content .delete_button{
+    font-size: 50px;
 }

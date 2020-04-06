@@ -1,14 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Yellowtail&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&family=Yellowtail&display=swap');
 @import "reset.css";
 @import "topbar.css";
 @import "navbar.css";
 @import "maincontents.css";
 
+
+
 a { 
     text-decoration:none ; color:#000000;
-}
-
-*{
-    box-sizing: border-box;
 }
 
