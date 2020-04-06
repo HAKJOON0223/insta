@@ -1,5 +1,7 @@
 .maincontents{
     margin-top: 80px;
+    margin-bottom: 120px;
+    width: 980px;
 }
 
 .Top_Content{
@@ -25,4 +27,25 @@
 
 .Top_Content .delete_button{
     font-size: 50px;
+}
+
+
+.PostContainer .text,
+.PostContainer .AddComment{
+    padding: 0px 20px;
+    font-size: 30px;
+}
+
+.functions .fa-heart{
+    color: rgb(255, 71, 71);
+}
+
+.functions i{
+    padding: 15px;
+}
+
+.functions{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
