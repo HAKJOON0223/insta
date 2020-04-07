@@ -3,6 +3,7 @@
 @import "topbar.css";
 @import "navbar.css";
 @import "maincontents.css";
+@import "form.css";
 
 *{
     box-sizing: border-box;

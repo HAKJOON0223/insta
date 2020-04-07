@@ -6,9 +6,9 @@ from imagekit.processors import Thumbnail, ResizeToFill, Transpose
 import os
 
 class Post(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    text = models.TextField()
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,blank=True)
+    title = models.CharField(max_length=200, blank=True)
+    text = models.TextField(blank=True)
     photo = ProcessedImageField(
             upload_to = 'photo/',
             processors = [Transpose(), ResizeToFill(980,980)],
@@ -27,10 +27,11 @@ class Post(models.Model):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.photo.path))
         super(Post, self).delete(*args, **kargs)
 
+
 class Comment(models.Model):
-    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comment')
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    text = models.TextField()
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comment', null=True, blank=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True )
+    text = models.TextField(null=True, blank=True)
     created_date = models.DateTimeField(default = timezone.now)
     approved_comment = models.BooleanField(default=False)
 

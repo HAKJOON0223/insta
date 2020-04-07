@@ -3,6 +3,7 @@ from .models import Post, Comment, comment_to_comment
 from .forms import PostForm, CommentForm, comment_to_comment_form
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
+import os
 
 
 

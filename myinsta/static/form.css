@@ -1,0 +1,14 @@
+.maincontents p{
+    font-size: 50px;
+}
+
+.maincontents select{
+    height: 40px;
+}
+.maincontents #id_author{
+    width: 100%;
+}
+
+.maincontents #id_text{
+    width: 100%;
+}
