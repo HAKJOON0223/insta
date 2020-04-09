@@ -2,12 +2,12 @@
 
 {% block content %}
     
-            <form method='POST' action='' enctype="multipart/form-data">
+            <form method='POST' action='' enctype="multipart/form-data" class="editform">
                 {% csrf_token %}
                 <table>
                     {{form.as_table}}
                 </table>
-                <input type="submit">
+                <input type="submit" class = "editformsave">
             </form>
 
 {% endblock %}

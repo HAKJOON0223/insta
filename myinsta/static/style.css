@@ -3,7 +3,8 @@
 @import "topbar.css";
 @import "navbar.css";
 @import "maincontents.css";
-@import "form.css";
+@import "addcomment.css";
+@import "edit_post_form.css";
 
 *{
     box-sizing: border-box;

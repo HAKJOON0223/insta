@@ -17,4 +17,5 @@ body .Home_Logo{
     align-items: center;
     border-bottom: 1px solid rgb(195, 195, 195);
     padding: 0px 30px;
+    z-index: 100;
 }

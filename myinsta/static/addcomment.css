@@ -1,0 +1,58 @@
+.comment_form p{
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 20px;
+}
+
+.comment_form select{
+    height: 40px;
+}
+.comment_form #id_author{
+    width: 200px;
+    font-size: 20px;
+}
+
+.comment_form #id_text{
+    width: 400px;
+    height: 40px;
+    font-size: 30px;
+}
+
+.comment_form .save{
+    width: 100%;
+    margin: 20px;
+    background-color: whitesmoke;
+    border: none;
+}
+
+.profil .avatar{
+    width: 90px;
+    height: 90px;
+}
+
+.comment_container{
+    display: flex;
+    align-items: center;
+    padding: 30px 0px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.comment_container .author{
+    padding-left: 30px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    font-weight: 800;
+    width: 100%;
+    justify-content: flex-start;
+}
+.comment_container .text{
+    padding-left: 30px;
+    font-size: 25px;
+}
+
+.comment_form{
+    display: flex;
+}
+

@@ -3,16 +3,14 @@
 {% block content %}
 
     {% for comment in comment %}
-        <div class="comment">
+        <div class="comment_container">
 
-            <div class="profil_image">
-                
-            </div>
-            <div class="user_name">
-                <span>{{ comment.author }}</span>
+            <div class="profil">
+                <img src="../../media/resource/avatar.png" alt="" class = 'avatar'>
             </div>
             <div class="comment">
-                <span>{{ comment.text }} </span>
+                <div class = "author">{{ comment.author }}</div>
+                <div class = "text">{{ comment.text }} </div>
             </div>
             <div class="comment_to_comment">
                 {% for comments in comment_t_comment %}

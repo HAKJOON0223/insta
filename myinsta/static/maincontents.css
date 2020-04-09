@@ -1,7 +1,11 @@
 .maincontents{
-    margin-top: 80px;
+    margin-top: 50px;
     margin-bottom: 120px;
     width: 980px;
+    z-index: 1;
+}
+.PostContainer{
+    padding-top: 30px;
 }
 
 .Top_Content{
@@ -32,9 +36,18 @@
 
 .PostContainer .text,
 .PostContainer .AddComment{
-    padding: 0px 20px;
+    padding: 0px 10px;
     font-size: 30px;
 }
+
+.PostContainer .AddComment {
+    padding-top: 10px;
+    position: relative;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+
 
 .functions .fa-heart{
     color: rgb(255, 71, 71);

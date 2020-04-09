@@ -1,0 +1,71 @@
+.editform table{
+    width: 100%;
+}
+
+
+.editform{
+    padding-top: 80px;
+}
+
+
+.editform #id_title{
+    width: 100%;
+    height: 100px;
+}
+
+
+
+.editform #id_author{
+    width: 100%;
+    font-size: 20px;
+    height: 100px;
+}
+
+.editform #id_text{
+    width: 100%;
+    height: 40px;
+    font-size: 30px;
+    height: 300px;
+}
+
+
+
+.editform #id_photo{
+    width: 1px;
+    height: 1px;
+    background-color: gray;
+    padding: 80px 190px 100px 120px;
+}
+
+.editform .editformsave{
+    width: 100%;
+    height: 100px;
+    margin: 20px;
+    background-color: whitesmoke;
+    border: none;
+}
+
+.profil .avatar{
+    width: 90px;
+    height: 90px;
+}
+
+.eeditform{
+    display: flex;
+    align-items: center;
+    padding: 30px 0px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.editform .author{
+    padding-left: 30px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    font-weight: 800;
+    width: 100%;
+    justify-content: flex-start;
+}
+.editform .text{
+    padding-left: 30px;
+    font-size: 25px;
+}
