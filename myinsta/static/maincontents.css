@@ -1,11 +1,11 @@
 .maincontents{
-    margin-top: 50px;
+    margin-top: 80px;
     margin-bottom: 120px;
     width: 980px;
     z-index: 1;
 }
 .PostContainer{
-    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .Top_Content{
