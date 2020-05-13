@@ -1,5 +1,5 @@
-{% extends 'insta/base.html'%}
-
+{% extends 'myinsta/base.html'%}
+{% load static %}
 {% block content %}
     {% if posts %}
         <ul>
@@ -7,8 +7,8 @@
                 <div class="PostContainer">
                     <div class="Top_Content">
                         <div class="profil">
-                            <img src="../../media/resource/avatar.png" alt="" class = 'avatar'>
-                        </div>
+                            <img class="round" src="../../../media/{{post.user_id}}/{{post.user_id}}" onerror="this.src='/static/myinsta/img/avatar.jpg'" width="200">
+                        </div> 
                         <div class="author">
                             <span>{{ post.author }}</span>
                         </div>

@@ -16,7 +16,11 @@
     padding : 20px 30px;
 }
 
-.profil .avatar{
+.profil{
+    width: 90px;
+    height: 90px;
+}
+.profil img{
     width: 90px;
     height: 90px;
 }
