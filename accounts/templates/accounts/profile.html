@@ -1,17 +1,24 @@
 {% extends 'myinsta/base.html'%}
 {% load static %}
 {% block content %}
-    {% if user.is_authenticated %}
-        {% if profile_user.profile.profile_photo %}
+    <div class="profile_container">
+        <div class="background_img">
+            <img src="{% static 'accounts/img/background.jpg'%}" alt="" class="back_img">
+        </div>
+        <div class="profile__container">
+            {% if user.is_authenticated %}
+            {% if profile_user.profile.profile_photo %}
             <img class="round" src="{{profile_user.profile.profile_photo.url}}" width="200"> <br>
-        {% else %}
+            {% else %}
             <img class="round" src="{% static 'accounts/img/avatar.jpg' %}" width="200"> <br>
-        {% endif %} 
-        <span>{{ user.username }}</span>
-        <span>{{ profile_user.profile.name }}</span>
-        <span>{{ profile_user.profile.address }}</span>
-        <a href = "{%url 'logout' %}"><button>logout</button></a>
-    {% endif %}
-    <a href = "{%url 'update_profile' pk=user.pk %}"><button>update_profile</button></a>
+            {% endif %} 
+            <span>{{ user.username }}</span>
+            <span>{{ profile_user.profile.name }}</span>
+            <span>{{ profile_user.profile.address }}</span>
+            <a href = "{%url 'logout' %}"><button>logout</button></a>
+            {% endif %}
+            <a href = "{%url 'update_profile' pk=user.pk %}"><button>update_profile</button></a>
+        </div>
+    </div>
 
 {% endblock %}

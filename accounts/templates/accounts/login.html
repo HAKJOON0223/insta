@@ -46,15 +46,18 @@
     <body class="text-center">
         <form class="form-signin" method="POST" action="{%url 'login'%}">
           {% csrf_token %}
-          <img class="mb-4" src="{% static '/accounts/bootstrap-solid.svg' %}" alt="" width="72" height="72">
-          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-          <label for="inputEmail" class="sr-only">Email address</label>
+          <a href ="{% url 'IndexView'%}">
+            <img class="mb-4" src="{% static '/accounts/img/Logo.PNG' %}" alt="" width="200" height="200">
+          </a>
+          <h1 class="h4 mb-3 font-weight-bold">로그인 후 이용해주세요.</h1>
+          <label for="inputEmail" class="sr-only">ID or Email address</label>
           <input  name = "username" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
           <label for="inputPassword" class="sr-only">Password</label>
           <input name = "password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">로그인 뿅!</button>
           <div class = "signup">
-            <a href = "{% url 'signup' %}">Sign up</a>
+            <span>처음이신가요?</span>
+            <a href = "{% url 'signup' %}">회원가입</a>
           </div>
         </form>
     </body>
