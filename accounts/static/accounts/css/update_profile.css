@@ -1,0 +1,33 @@
+.update_profile_form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+} 
+
+
+.update_profile tbody{
+    width: 400px;
+
+} 
+
+.update_profile tr{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+} 
+
+.update_profile th{
+    display: flex;
+    justify-content: left;
+    font-size: 30px;
+} 
+
+.update_profile td input{
+    width: 100%;
+    height: 40px;
+} 
+
+.btn_update_profile{
+} 
+
+

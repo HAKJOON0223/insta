@@ -1,10 +1,12 @@
 {% extends 'myinsta/base.html'%}
 {% block content %}
-    <form method='POST' action="" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-        <input type="submit" class = "">
-    </form>
+    <div class="update_profile_form">
+        <form method='POST' action="" enctype="multipart/form-data" class="update_profile">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" class = "btn_update_profile">
+        </form>
+    </div>
 {% endblock %}
