@@ -1,8 +1,46 @@
 .back_img{
     width: 980px;
+    height: 350px;
 }
-.
+.profile_container{
+    display: flex;
+    justify-content: center;
+}
 .profile__container{
     position: relative;
-    top:-40px;
+    top:-150px;
+    display: block;
+    justify-content: center;
 }
+.profile__container div{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.btn_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile_photo{
+    width: 250px;
+    height: 250px;
+    border-radius: 100px;
+}
+.btn_container .btn {
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    background-color: gainsboro;
+    border: 1px solid gray;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    margin: 15px 10px;
+  }

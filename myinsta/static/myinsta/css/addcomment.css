@@ -30,6 +30,7 @@
 .profil .avatar{
     width: 90px;
     height: 90px;
+    border-radius: 35px;
 }
 
 .comment_container{
