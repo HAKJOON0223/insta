@@ -6,8 +6,8 @@
         <div class="comment_container">
 
             <div class="profil">
-                <img src="../../media/resource/avatar.png" alt="" class = 'avatar'>
-            </div>
+                <img class="round" src="../../../media/{{comment.user_id}}/{{comment.user_id}}" onerror="this.src='/static/myinsta/img/avatar.jpg'" width="200">
+            </div> 
             <div class="comment">
                 <div class = "author">{{ comment.author }}</div>
                 <div class = "text">{{ comment.text }} </div>

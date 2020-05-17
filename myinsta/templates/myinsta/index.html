@@ -12,9 +12,14 @@
                         <div class="author">
                             <span>{{ post.author }}</span>
                         </div>
+                        {% if post.author == user %}
+                        <div class="edit_button">
+                            <a class="btn btn-default" href="{% url 'EditPost' pk=post.pk %}"><i class="fas fa-edit"></i></a>
+                        </div>
                         <div class="delete_button">
                             <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><i class="fas fa-times"></i></a>
                         </div>
+                        {% endif %}
                     </div>
                     <div class="photo">
                         {% if post.photo %}

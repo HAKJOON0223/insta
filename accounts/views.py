@@ -43,17 +43,13 @@ def profile(request, pk):
 @login_required
 def update_profile(request, pk):
     profile = get_object_or_404(User, pk=pk)
-    print(profile.profile.name)
     if request.method == "POST":
         form = profile_form(request.POST, request.FILES)
         if form.is_valid():
-            print(form.cleaned_data)
             profile.profile.name = form.cleaned_data['name']
             profile.profile.address = form.cleaned_data['address']
             profile.profile.profile_photo = form.cleaned_data['profile_photo']
-            print(profile.profile.profile_photo)
             imgfile = settings.MEDIA_ROOT+ "/" + str(pk) + "/" + str(pk)
-            print(imgfile)
             try:
                 os.remove(imgfile)
             except:

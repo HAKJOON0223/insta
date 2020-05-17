@@ -22,7 +22,8 @@ from . import views
 
 urlpatterns = [
     path('', views.IndexView, name = 'IndexView'),
-    path('EditPost/', views.EditPost, name = 'EditPost'),
+    path('NewPost/', views.NewPost, name = 'NewPost'),
+    path('EditPost/<int:pk>/', views.EditPost, name = 'EditPost'),
     path('<int:pk>/add_comment/', views.add_comment_page, name = 'add_comment_page'),
     path('insta/<int:pk>/remove/', views.post_remove, name = 'post_remove'),
 ]

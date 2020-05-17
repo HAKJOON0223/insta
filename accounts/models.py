@@ -20,6 +20,7 @@ class Profile(models.Model):
             processors = [Transpose(), ResizeToFill(500,500)],
             format = 'JPEG',
             options = {'quality': 80},
+            blank = True
     )
 
 @receiver(post_save, sender=User)

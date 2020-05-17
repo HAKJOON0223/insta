@@ -37,6 +37,7 @@ class Comment(models.Model):
     text = models.TextField(null=True, blank=True)
     created_date = models.DateTimeField(default = timezone.now)
     approved_comment = models.BooleanField(default=False)
+    user_id = models.TextField(blank=True)
 
 
     def approved(self):
@@ -52,6 +53,7 @@ class comment_to_comment(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default = timezone.now)
     apporved_comment = models.BooleanField(default = False)
+    user_id = models.TextField(blank=True)
  
 
     def apporoved(self):

@@ -17,7 +17,7 @@ def IndexView(request):
     
     
 @login_required
-def EditPost(request):
+def NewPost(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -31,6 +31,21 @@ def EditPost(request):
     return render(request, 'myinsta/EditPost.html', {'form': form})
 
 @login_required
+def EditPost(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.user_id = request.user.id
+            post.save()
+            return redirect('IndexView')
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'myinsta/EditPost.html', {'form': form})
+
+@login_required
 def add_comment_page(request, pk):
     post = get_object_or_404(Post, pk=pk)
     comment = post.comment.all
@@ -41,9 +56,12 @@ def add_comment_page(request, pk):
         form_comment = CommentForm(request.POST)
         if form_comment.is_valid():
             comment = form_comment.save(commit=False)
+            comment.author = request.user
+            comment.user_id = request.user.id
             comment.post = post
             comment.save()
             return redirect('add_comment_page', pk=post.pk)
+
     else:
         form = CommentForm()
 
@@ -51,6 +69,8 @@ def add_comment_page(request, pk):
         form_comment_to_comment = comment_to_comment_form(request.POST)
         if form_comment_to_comment.is_valid():
             comment_to_comment = form_comment_to_comment.save(commit=False)
+            comment_to_comment.author = request.user
+            comment_to_comment.user_id = request.user.id
             comment_to_comment.comment = comment
             comment_to_comment.save()
             return redirect('add_comment_page', pk=post.pk)
