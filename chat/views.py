@@ -1,11 +1,52 @@
 from django.shortcuts import render
-from django.utils.safestring import mark_safe
-import json
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from pusher import Pusher
+from .models import *
+from django.http import JsonResponse, HttpResponse
 
+# instantiate pusher
+pusher = Pusher(app_id=u'1003163', key=u'8c79ce334c02dce24cf0', secret=u'54a04ba02786bb6971c6', cluster=u'ap3',ssl=True)
+# Create your views here.
+#add the login required decorator, so the method cannot be accessed withour login
+@login_required(login_url='login/')
 def index(request):
-    return render(request, 'chat/index.html', {})
+    return render(request,"chat/chat.html");
 
-def room(request, room_name):
-    return render(request, 'chat/room.html', {
-        'room_name_json': mark_safe(json.dumps(room_name))
-    })
+#use the csrf_exempt decorator to exempt this function from csrf checks
+@csrf_exempt
+def broadcast(request):
+    # collect the message from the post parameters, and save to the database
+    message = Conversation(message=request.POST.get('message', ''), status='', user=request.user);
+    message.save();
+    # create an dictionary from the message instance so we can send only required details to pusher
+    message = {'name': message.user.username, 'status': message.status, 'message': message.message, 'id': message.id}
+    #trigger the message, channel and event to pusher
+    pusher.trigger(u'a_channel', u'an_event', message)
+    # return a json response of the broadcasted message
+    return JsonResponse(message, safe=False)
+
+#return all conversations in the database
+def conversations(request):
+    data = Conversation.objects.all();
+    print(data)
+    # loop through the data and create a new list from them. Alternatively, we can serialize the whole object and send the serialized response 
+    data = [{'name': person.user.username, 'status': person.status, 'message': person.message, 'id': person.id} for person in data]
+    # return a json response of the broadcasted messgae
+    return JsonResponse(data, safe=False)
+
+#use the csrf_exempt decorator to exempt this function from csrf checks
+@csrf_exempt
+def delivered(request, id):
+
+    message = Conversation.objects.get(pk=id);
+    # verify it is not the same user who sent the message that wants to trigger a delivered event
+    if request.user.id != message.user.id:
+        socket_id = request.POST.get('socket_id', '')
+        message.status = 'Delivered';
+        message.save();
+        message = {'name': message.user.username, 'status': message.status, 'message': message.message, 'id': message.id}
+        pusher.trigger(u'a_channel', u'delivered_message', message, socket_id)
+        return HttpResponse('ok');
+    else:
+        return HttpResponse('Awaiting Delivery');
